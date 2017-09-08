@@ -718,6 +718,29 @@
 
     </div>
   </div>
+  <!-- Parte de llenar video-->
+  <div class="formulario-carga">
+    <form action="/action_page.php">
+
+        <label class="input-group-addon"><b>Categoria</b></label>
+        <input class="form-control form-control-b textfild" type="text" name="categoria" required>
+        <label class="input-group-addon"><b>Escoge un Libro</b></label>
+        <select class="form-control" name="Libros">
+          <option value="A1">A1</option>
+          <option value="A2">A2</option>
+          <option value="A3">A3</option>
+          <option value="A4">A4</option>
+        </select>
+        <label class="input-group-addon"><b>Inserta tu liga</b></label>
+        <input class="form-control form-control-b textfild" type="text" name="liga" placeholder="https://youtu.be/_ejemplo" required>
+        <button class="btn btn-book tcien" type="submit">Carga</button>
+
+
+
+    </form>
+  </div>
+  <!-- /Parte de llenar video-->
+
 <!-- modal estamos trabajando-->
 <div class="modal fade" id="trabajando" role="dialog">
   <div class="modal-dialog">
