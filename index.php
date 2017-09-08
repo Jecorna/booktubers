@@ -60,10 +60,9 @@
     <div class="carousel-inner">
       <div class="item active">
         <img class="img-responsive img-princ" src="images/recursos/LibrosSFdo.png" alt="">
-        <div class="container">
           <div class="carousel-caption">
             <div class="cont-princ">
-              <div class="slide-logo img-responsive"><img src="images/Recursos/logoOrilladelViento.png" alt=""></div>
+              <div class="slide-logo img-responsive"><img class="img-logo-b" src="images/Recursos/logoOrilladelViento.png" alt=""></div>
               <div class="texto-intr">
                 <p class="sltext">Para celebrar los 25 años de la colección A la Orilla del Viento, dirigida a lectores como tú, la Secretaría de Relaciones Exteriores y el Fondo de Cultura Económica te invitan a compartir tus experiencias con nuestros libros y a participar como Booktuber en este concurso</p>
                 <ul class="lista-nav">
@@ -73,9 +72,13 @@
                   <li><a href="http://www.fondodeculturaeconomica.com/invitaciones/2017/ConvocatoriaBooktubers2017.pdf" target="_blank">Ver Convocatoria</a></li>
                 </ul>
               </div>
-              <a class="getst" href="#registro" role="button">Crea una cuenta</a> </div>
+
             </div>
-        </div>
+            <div class="img-logo-b">
+              <a class="getst" href="#registro" role="button">Crea una cuenta</a>
+            </div>
+            </div>
+
       </div>
       <!--<div class="item" style="background-image:url(images/Recursos/Librito-BT.png);">
         <div class="container">
