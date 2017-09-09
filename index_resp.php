@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -134,19 +133,8 @@ function seleccinado_select2(value)
           <li><a href="#comop">¿Cómo participo?</a></li>
           <li><a href="#about">Bases</a></li>
           <li><a href="#team">Consejos</a></li>
-          <?php
-            if(!$_SESSION['entorno']['usuario_email'])
-            {
-                echo "<li><button type='button' class='btn btn-book btn-lg' data-toggle='modal' data-target='#myModal'>Mi cuenta</button></li>";
-            }
-            else
-            {
-                echo "<li><a href='funciones/salir.php'><button type='button' class='btn btn-book btn-lg'>Salir</button></a></li>";
-            }
-          ?>
-          <!--
-<li><button type="button" class="btn  btn-info" data-toggle="modal" data-target="#trabajando" style="margin-left:40px; margin-top:5px; margin-right: -15px;">Registro</button></li>
--->
+          <li><button type="button" class="btn btn-book btn-lg" data-toggle="modal" data-target="#myModal">Mi cuenta</button></li>
+          <li><button type="button" class="btn  btn-info" data-toggle="modal" data-target="#trabajando" style="margin-left:40px; margin-top:5px; margin-right: -15px;">Registro</button></li>
           <li style="display:none;"><a href="#registro">Registro</a></li>
           <li><a href="http://www.fondodeculturaeconomica.com/invitaciones/2017/ConvocatoriaBooktubers2017.pdf">Convocatoria</a></li>
         </ul>
@@ -732,11 +720,7 @@ function seleccinado_select2(value)
 </div>
 <!-- / blog Close -->
 <div class="clearfix"></div>
-<?php 
-    if(!$_SESSION['entorno']['usuario_email'])
-    {
-                                
-                              ?>
+
 <div class="registro" id="registro">
   <div class="container">
     <div class="head_section">
@@ -750,7 +734,7 @@ function seleccinado_select2(value)
           <form name="registro" id="registro" method="post" action="funciones/registro.php" >
             <div class="form-group">
               <span class="input-group-addon">Nombre del participante</span>
-              <input type="text" pattern=".{3,}"  title="3 caracteres mínimo" class="form-control textfild" name="nombre" id="nombre" placeholder="Nombre del participante" required>
+              <input type="text" class="form-control textfild" name="nombre" id="nombre" placeholder="Nombre del participante" required>
             </div>
             <div class="form-group">
               <span class="input-group-addon">Correo del paticipante</span>
@@ -758,7 +742,7 @@ function seleccinado_select2(value)
             </div>
             <div class="form-group">
               <span class="input-group-addon">Nombre del adulto responsable</span>
-              <input type="text" pattern=".{3,}"  title="3 caracteres mínimo" class="form-control textfild" name="nombrear" id="nombrear" placeholder="Nombre del adulto responsable" required>
+              <input type="text" class="form-control textfild" name="nombrear" id="nombrear" placeholder="Nombre del adulto responsable" required>
             </div>
             <div class="form-group">
               <span class="input-group-addon">Correo del adulto responsable</span>
@@ -1009,10 +993,6 @@ function seleccinado_select2(value)
                                 <option value='0'>Selecciona una opcion</option>
                             </select>
                             </div>
-                            <div class="form-group">
-                            <span class="input-group-addon">Contraseña</span>
-                            <input type="password" pattern=".{8,}"  title="8 caracteres mínimo" class="form-control textfild" name="password" id="password" placeholder="Ingrese contraseña" required>
-                            </div>
             <input type="submit" value="Crear" class="submit-btn" onClick="">
           </form>
         </div>
@@ -1020,22 +1000,9 @@ function seleccinado_select2(value)
     </div>
   </div>
 </div>
-
-<?php }
-    else
-    { ?>
-                                <!-- Parte de llenar video-->
-<div class="registro" id="registro">
-  <div class="container">
-    <div class="head_section">
-      <h2>Sube tus videos aquí</h2>
-    </div>
-  </div>
-  <div class="contact_wrap">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="query">
-          <form action="/action_page.php">
+<!-- Parte de llenar video-->
+<div class="formulario-carga">
+  <form action="/action_page.php">
 
       <label class="input-group-addon"><b>Categoria</b></label>
       <input class="form-control form-control-b textfild" type="text" name="categoria" required>
@@ -1053,14 +1020,7 @@ function seleccinado_select2(value)
 
 
   </form>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-
-                              <?php }  ?>
-
 <!-- /Parte de llenar video-->
 <!-- / contact Close -->
 
@@ -1092,10 +1052,10 @@ function seleccinado_select2(value)
           <h4 class="modal-title">Acceder</h4>
         </div>
         <div class="modal-body">
-          <form action="funciones/ingresa.php" method="POST">
+          <form action="/action_page.php">
 
-              <label class="input-group-addon"><b>Correo electrónico</b></label>
-              <input class="form-control form-control-b textfild" type="text" placeholder="Correo" name="uname" required>
+              <label class="input-group-addon"><b>Usuario</b></label>
+              <input class="form-control form-control-b textfild" type="text" placeholder="Usuario" name="uname" required>
               <label class="input-group-addon"><b>Contraseña</b></label>
               <input class="form-control form-control-b textfild" type="password" placeholder="Contraseña" name="psw" required>
               <button class="btn btn-book tcien" type="submit">Ingresa</button>
@@ -1144,24 +1104,6 @@ function seleccinado_select2(value)
 <script type="text/javascript" src="js/jquery.circliful.js"></script>
 <script type="text/javascript" src="js/jquery.tubular.1.0.js"></script>
 <script type="text/javascript" src="js/docs.min.js"></script>
-<script type="text/javascript">
-$(document).on("ready",function(){
-    function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-        var ecode = getParameterByName('ec');
-        if(ecode)
-        {
-            $("html,body").animate({ scrollTop : $("#registro").offset().top  }, 1500 );
-        }
-});
-</script>
 
 </body>
 </html>
