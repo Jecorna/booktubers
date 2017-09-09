@@ -41,16 +41,42 @@ function cargarSelect2(valor)
      *  - testo que se asignara
      */
     var arrayValores=new Array(
-        new Array(1,1,"opcion1-1"),
-        new Array(1,2,"opcion1-2"),
-        new Array(1,3,"opcion1-3"),
-        new Array(2,1,"opcion2-1"),
-        new Array(3,1,"opcion3-1"),
-        new Array(3,2,"opcion3-2"),
-        new Array(3,3,"opcion3-3"),
-        new Array(3,4,"opcion3-4")
+      new Array("México","Elija un estado""Elija un estado"),
+      new Array("México","Aguascalientes""Aguascalientes"),
+      new Array("México","Baja California""Baja California"),
+      new Array("México","Baja California Sur""Baja California Sur"),
+      new Array("México","Campeche""Campeche"),
+      new Array("México","Chiapas""Chiapas"),
+      new Array("México","Chihuahua""Chihuahua"),
+      new Array("México","Ciudad de México""Ciudad de México"),
+      new Array("México","Coahuila""Coahuila"),
+      new Array("México","Colima""Colima"),
+      new Array("México","Durango""Durango"),
+      new Array("México","Estado de México""Estado de México"),
+      new Array("México","Guanajuato""Guanajuato"),
+      new Array("México","Guerrero""Guerrero"),
+      new Array("México","Hidalgo""Hidalgo"),
+      new Array("México","Jalisco""Jalisco"),
+      new Array("México","Michoacán""Michoacán"),
+      new Array("México","Morelos""Morelos"),
+      new Array("México","Nayarit""Nayarit"),
+      new Array("México","Nuevo León""Nuevo León"),
+      new Array("México","Oaxaca""Oaxaca"),
+      new Array("México","Puebla""Puebla"),
+      new Array("México","Querétaro""Querétaro"),
+      new Array("México","Quintana Roo""Quintana Roo"),
+      new Array("México","San Luis Potosí""San Luis Potosí"),
+      new Array("México","Sinaloa""Sinaloa"),
+      new Array("México","Sonora""Sonora"),
+      new Array("México","Tabasco""Tabasco"),
+      new Array("México","Tamaulipas""Tamaulipas"),
+      new Array("México","Tlaxcala""Tlaxcala"),
+      new Array("México","Veracruz""Veracruz"),
+      new Array("México","Yucatán""Yucatán"),
+      new Array("México","Zacatecas""Zacatecas")
+
     );
-    if(valor==0)
+    if(valor=!'México')
     {
         // desactivamos el segundo select
         document.getElementById("select2").disabled=true;
@@ -179,7 +205,7 @@ function seleccinado_select2(value)
         <select id='select1' onchange='cargarSelect2(this.value);'>
             <option value='0'>Selecciona una opcion</option>
             <option value='1'>opcion 1</option>
-            <option value='2'>opcion 2</option>
+            <option value='México'>México</option>
             <option value='3'>opcion 3</option>
         </select>
     </p>
@@ -708,19 +734,19 @@ function seleccinado_select2(value)
           <form name="registro" id="registro" method="post" action="funciones/registro.php" >
             <div class="form-group">
               <span class="input-group-addon">Nombre del participante</span>
-              <input type="text" class="form-control textfild" name="nombre" id="nombre" placeholder="Nombre del participante">
+              <input type="text" class="form-control textfild" name="nombre" id="nombre" placeholder="Nombre del participante" required>
             </div>
             <div class="form-group">
               <span class="input-group-addon">Correo del paticipante</span>
-              <input type="email" name="email" id="email" class="form-control textfild" placeholder="Correo del participante">
+              <input type="email" name="email" id="email" class="form-control textfild" placeholder="Correo del participante" required>
             </div>
             <div class="form-group">
               <span class="input-group-addon">Nombre del adulto responsable</span>
-              <input type="text" class="form-control textfild" name="nombrear" id="nombrear" placeholder="Nombre del adulto responsable">
+              <input type="text" class="form-control textfild" name="nombrear" id="nombrear" placeholder="Nombre del adulto responsable" required>
             </div>
             <div class="form-group">
               <span class="input-group-addon">Correo del adulto responsable</span>
-              <input type="email" name="emailar" id="emailar" class="form-control textfild" placeholder="Correo del adulto responsable">
+              <input type="email" name="emailar" id="emailar" class="form-control textfild" placeholder="Correo del adulto responsable" required>
             </div>
             <div class="input-group">
               <span class="input-group-addon">Edad</span>
@@ -967,11 +993,8 @@ function seleccinado_select2(value)
                                 <option value='0'>Selecciona una opcion</option>
                             </select>
                             </div>
-
-            <div class="error"></div>
-            <input type="button" value="Crear" class="submit-btn" onClick="">
+            <input type="submit" value="Crear" class="submit-btn" onClick="">
           </form>
-          <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
         </div>
       </div>
     </div>
