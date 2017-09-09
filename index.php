@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+include 'funciones/funciones.php';
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1021,45 +1024,13 @@ function seleccinado_select2(value)
   </div>
 </div>
 
-<?php }
+<?php 
+    }
     else
-    { ?>
-                                <!-- Parte de llenar video-->
-<div class="registro" id="registro">
-  <div class="container">
-    <div class="head_section">
-      <h2>Sube tus videos aquí</h2>
-    </div>
-  </div>
-  <div class="contact_wrap">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="query">
-          <form action="/action_page.php">
-
-      <label class="input-group-addon"><b>Categoria</b></label>
-      <input class="form-control form-control-b textfild" type="text" name="categoria" required>
-      <label class="input-group-addon"><b>Escoge un Libro</b></label>
-      <select class="form-control" name="Libros">
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="A3">A3</option>
-        <option value="A4">A4</option>
-      </select>
-      <label class="input-group-addon"><b>Inserta tu liga</b></label>
-      <input class="form-control form-control-b textfild" type="text" name="liga" placeholder="https://youtu.be/_ejemplo" required>
-      <button class="btn btn-book tcien" type="submit">Carga</button>
-
-
-
-  </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-                              <?php }  ?>
+    { 
+        categorias(); 
+    }  
+?>
 
 <!-- /Parte de llenar video-->
 <!-- / contact Close -->
