@@ -102,7 +102,7 @@ function cargarSelect2(valor)
 }
 
 /**
- * Una vez selecciona una valor del segundo selecte, obtenemos la información
+ * FErnandoUna vez selecciona una valor del segundo selecte, obtenemos la información
  * de los dos selects y la mostramos
  */
 function seleccinado_select2(value)
