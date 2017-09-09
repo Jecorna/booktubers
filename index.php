@@ -124,7 +124,7 @@ function seleccinado_select2(value)
   <div id="homeSlider" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="item active">
-        <img class="img-responsive img-princ" src="images/recursos/LibrosSFdo.png" alt="">
+        <img class="img-responsive img-princ" src="images/Recursos/LibrosSFdo.png" alt="">
           <div class="carousel-caption">
             <div class="cont-princ">
               <div class="slide-logo img-responsive"><img class="img-logo-b" src="images/Recursos/logoOrilladelViento.png" alt=""></div>
@@ -1007,12 +1007,12 @@ function seleccinado_select2(value)
   <div class="container lbla">
     <p>© 2017 Fondo de cultura ecónomica - Todos los derechos reservados </p>
     <ul>
-      <li><a href="#"><img src="images/recursos/logo1.png" alt=""></a></li>
-      <li><a href="#"><img src="images/recursos/logo2.png" alt=""></a></li>
-      <li><a href="#"><img src="images/recursos/logo3.png" alt=""></a></li>
-      <li><a href="#"><img src="images/recursos/logo4.png" alt=""></a></li>
-      <li><a href="#"><img src="images/recursos/logo5.png" alt=""></a></li>
-      <li><a href="#"><img src="images/recursos/logo6.png" alt=""></a></li>
+      <li><a href="#"><img src="images/Recursos/logo1.png" alt=""></a></li>
+      <li><a href="#"><img src="images/Recursos/logo2.png" alt=""></a></li>
+      <li><a href="#"><img src="images/Recursos/logo3.png" alt=""></a></li>
+      <li><a href="#"><img src="images/Recursos/logo4.png" alt=""></a></li>
+      <li><a href="#"><img src="images/Recursos/logo5.png" alt=""></a></li>
+      <li><a href="#"><img src="images/Recursos/logo6.png" alt=""></a></li>
 
     </ul>
   </div>
