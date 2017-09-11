@@ -13,7 +13,7 @@ include 'conexion.php';
         $sqlentradacrea = "insert into booktubers_entradas (booktubers_entradas_usuarios_id,booktubers_entradas_titulos_categoria, booktubers_entradas_titulos_id,booktubers_entradas_ligavideo,booktubers_entradas_fechaentrada) values ('".$_POST['idusr']."','".$_POST['categoria']."','".$_POST['Libros']."','".$_POST['liga']."','".date("Y-m-d H:i:s")."')";
         $resultentradacrea = mysqli_query($conexion, $sqlentradacrea);
         echo $sqlentradacrea;
-        //header('Location: ../?ec=6');
+        header('Location: ../?ec=6');
     }
     
 ?>

@@ -139,7 +139,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
           <ol>
           	                <li> Si tienes entre 9 y 11 años de edad participa en la categoría A.</li>
           	                <li> Si tienes entre 12 y 15 años de edad participa en la categoría B.</li>
-                            <li> Si tienes entre 15 y 19 años de edad participa en la categoría C.</li>
+                            <li> Si tienes entre 16 y 19 años de edad participa en la categoría C.</li>
           	                <li> Elige uno de los siguientes libros de las colecciones para niños y jóvenes del FCE:
           		                <ul style=" list-style: none;">
           			                <li><span class="lespecial">Categoría A</span>
@@ -813,10 +813,36 @@ $(document).on("ready",function(){
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
         var ecode = getParameterByName('ec');
+        
         if(ecode)
         {
             $("html,body").animate({ scrollTop : $("#registro").offset().top  }, 1500 );
+            if(ecode==1)
+            {
+                alert("Usuario Registrado exitosamente");
+            }
+            if(ecode==2)
+            {
+                alert("Usuario existente");
+            }
+            if(ecode==3)
+            {
+                alert("Usuario y/o contrasena incorrectos");
+            }
+            if(ecode==4)
+            {
+                alert("Bienvenido logeado");
+            }
+            if(ecode==5)
+            {
+                alert("Título ya ligado a un video");
+            }
+            if(ecode==6)
+            {
+                alert("Liga subida con éxito");
+            }
         }
+        
 });
 </script>
 <script type="text/javascript" src="js/selects.js"></script>

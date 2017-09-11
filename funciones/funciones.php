@@ -109,7 +109,7 @@ session_start();
         if (mysqli_num_rows($resultciudades) > 0)
         {
             while($rowc = mysqli_fetch_assoc($resultciudades)) {
-                $ciudades.= "<option value='".$rowc["idciudades"]."'>".$rowc["Ciudad"]."</option>";
+                $ciudades.= "<option value='".$rowc["idCiudades"]."'>".$rowc["Ciudad"]."</option>";
             }
         }
         //$data="<option value='2'>Ciudad</option>";

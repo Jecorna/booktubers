@@ -15,7 +15,7 @@ include 'conexion.php';
             $_SESSION['entorno']['usuario_edad']=$rowp["booktubers_usuarios_edad"];
             $_SESSION['entorno']['usuario_nombrear']=$rowp["booktubers_usuarios_nombrear"];
         }
-        header('Location: ../?ec=1');
+        header('Location: ../?ec=4');
     }
     else
     {
