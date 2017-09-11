@@ -115,5 +115,22 @@ session_start();
         //$data="<option value='2'>Ciudad</option>";
         echo $ciudades;
      }
+     
+     /**
+      * Actualiza liga
+      */
+     if($_POST['actualiza'])
+     {
+        include 'conexion.php';
+        $sqlobtliga = "select * from booktubers_entradas where booktubers_entradas_titulos_categoria='".$_SESSION['entorno']['categoria']."' and booktubers_entradas_usuarios_id=".$_SESSION['entorno']['usuario_id']." and booktubers_entradas_titulos_id='".$_SESSION['entorno']['Libros']."'";
+        $resultobtliga = mysqli_query($conexion, $sqlobtliga);
+        if (mysqli_num_rows($resultobtliga) > 0)
+        {
+            while($rowac = mysqli_fetch_assoc($resultobtliga)) {
+                $sqlactliga = "update booktubers_entradas set booktubers_entradas_ligavideo='".$rowac["booktubers_entradas_ligavideo_alterna"]."' where booktubers_entradas_titulos_categoria='".$_SESSION['entorno']['categoria']."' and booktubers_entradas_usuarios_id=".$_SESSION['entorno']['usuario_id']." and booktubers_entradas_titulos_id='".$_SESSION['entorno']['Libros']."'";
+                $resultactliga = mysqli_query($conexion, $sqlactliga);
+            }
+        }
+     }
     
 ?>

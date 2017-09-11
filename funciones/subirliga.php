@@ -1,11 +1,15 @@
 <?php
 include 'conexion.php';
-    
+    session_start();
     $sqlusuarioexiste = "select * from booktubers_entradas where booktubers_entradas_titulos_categoria='".$_POST['categoria']."' and booktubers_entradas_usuarios_id=".$_POST['idusr']." and booktubers_entradas_titulos_id='".$_POST['Libros']."'";
     $resultusuarioexiste = mysqli_query($conexion, $sqlusuarioexiste);
     echo $sqlusuarioexiste;
     if (mysqli_num_rows($resultusuarioexiste) > 0)
     {
+        $sqlactliga = "update booktubers_entradas set booktubers_entradas_ligavideo_alterna='".$_POST['liga']."' where booktubers_entradas_titulos_categoria='".$_POST['categoria']."' and booktubers_entradas_usuarios_id=".$_POST['idusr']." and booktubers_entradas_titulos_id='".$_POST['Libros']."'";
+        $resultactliga = mysqli_query($conexion, $sqlactliga);
+        $_SESSION['entorno']['categoria']=$_POST['categoria'];
+        $_SESSION['entorno']['Libros']=$_POST['Libros'];
         header('Location: ../?ec=5');
     }
     else

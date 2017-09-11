@@ -36,6 +36,11 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
 <link href="css/booktubers.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Merriweather|Raleway" rel="stylesheet">
 
+<!-- PNotify -->
+    <link href="pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -819,33 +824,79 @@ $(document).on("ready",function(){
             $("html,body").animate({ scrollTop : $("#registro").offset().top  }, 1500 );
             if(ecode==1)
             {
-                alert("Usuario Registrado exitosamente");
+                new PNotify({
+                    title: 'Usuario Registrado',
+                    text: 'Usuario Registrado exitosamente, ahora puedes subir las ligas de tus videos',
+                    type: 'success',
+                    styling: 'bootstrap2'
+                });
             }
             if(ecode==2)
             {
-                alert("Usuario existente");
+                new PNotify({
+                    title: 'Usuario existente',
+                    text: 'Usuario previamente registrado, intenta nuevamente con otro correo',
+                    type: 'error',
+                    styling: 'bootstrap2'
+                });
             }
             if(ecode==3)
             {
-                alert("Usuario y/o contrasena incorrectos");
+                new PNotify({
+                    title: 'Usuario y/o contrasena incorrectos',
+                    text: 'Recuerda si usaste mayúsculas o mnúsculas, acentuación o signos especiales',
+                    type: 'error',
+                    styling: 'bootstrap2'
+                });
             }
             if(ecode==4)
             {
-                alert("Bienvenido logeado");
+                new PNotify({
+                    title: 'Bienvenido',
+                    text: 'Se ha cargado exitosamente tu sesión y puedes continuar subiendo más videos',
+                    type: 'success',
+                    styling: 'bootstrap2'
+                });
             }
             if(ecode==5)
             {
-                alert("Título ya ligado a un video");
+                var txt;
+                var r = confirm("Ya existe una liga asociada a este video. ¿Desea reemplazarla?");
+                if (r == true) {
+                    $.post('funciones/funciones.php', { actualiza: 1 }, function(data,status){
+                        new PNotify({
+                            title: 'Liga Actualizada',
+                            text: 'Se ha actualizado la liga',
+                            type: 'success',
+                            styling: 'bootstrap2'
+                        });
+                    });
+                } else {
+                    new PNotify({
+                        title: 'Liga no actualizada',
+                        text: 'Se ha conservado la liga anterior',
+                        type: 'info',
+                        styling: 'bootstrap2'
+                    });
+                }
             }
             if(ecode==6)
             {
-                alert("Liga subida con éxito");
+                new PNotify({
+                    title: 'Liga subida con éxito',
+                    text: 'Espera tu calificación, será enviada una notifiación a tu correo electrónico una vez haya sido revisada',
+                    type: 'success',
+                    styling: 'bootstrap2'
+                });
             }
         }
         
 });
 </script>
 <script type="text/javascript" src="js/selects.js"></script>
-
+<!-- PNotify -->
+    <script src="pnotify/dist/pnotify.js"></script>
+    <script src="pnotify/dist/pnotify.buttons.js"></script>
+    <script src="pnotify/dist/pnotify.nonblock.js"></script>
 </body>
 </html>
