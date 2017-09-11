@@ -1,6 +1,11 @@
 <?php
 include 'funciones/funciones.php';
-session_start(); 
+session_start();
+if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
+{
+    # aqui gestionariamos los valores del formulario
+    echo "OK";
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,97 +35,7 @@ session_start();
 <link href="css/style.css" rel="stylesheet" type="text/css" >
 <link href="css/booktubers.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Merriweather|Raleway" rel="stylesheet">
-<script type="text/javascript">
-/**
- * Funcion que se ejecuta al seleccionar una opcion del primer select
- */
-function cargarSelect2(valor)
-{
-    /**
-     * Este array contiene los valores sel segundo select
-     * Los valores del mismo son:
-     *  - hace referencia al value del primer select. Es para saber que valores
-     *  mostrar una vez se haya seleccionado una opcion del primer select
-     *  - value que se asignara
-     *  - testo que se asignara
-     */
-    var arrayValores=new Array(
-      new Array("México","Elija un estado""Elija un estado"),
-      new Array("México","Aguascalientes""Aguascalientes"),
-      new Array("México","Baja California""Baja California"),
-      new Array("México","Baja California Sur""Baja California Sur"),
-      new Array("México","Campeche""Campeche"),
-      new Array("México","Chiapas""Chiapas"),
-      new Array("México","Chihuahua""Chihuahua"),
-      new Array("México","Ciudad de México""Ciudad de México"),
-      new Array("México","Coahuila""Coahuila"),
-      new Array("México","Colima""Colima"),
-      new Array("México","Durango""Durango"),
-      new Array("México","Estado de México""Estado de México"),
-      new Array("México","Guanajuato""Guanajuato"),
-      new Array("México","Guerrero""Guerrero"),
-      new Array("México","Hidalgo""Hidalgo"),
-      new Array("México","Jalisco""Jalisco"),
-      new Array("México","Michoacán""Michoacán"),
-      new Array("México","Morelos""Morelos"),
-      new Array("México","Nayarit""Nayarit"),
-      new Array("México","Nuevo León""Nuevo León"),
-      new Array("México","Oaxaca""Oaxaca"),
-      new Array("México","Puebla""Puebla"),
-      new Array("México","Querétaro""Querétaro"),
-      new Array("México","Quintana Roo""Quintana Roo"),
-      new Array("México","San Luis Potosí""San Luis Potosí"),
-      new Array("México","Sinaloa""Sinaloa"),
-      new Array("México","Sonora""Sonora"),
-      new Array("México","Tabasco""Tabasco"),
-      new Array("México","Tamaulipas""Tamaulipas"),
-      new Array("México","Tlaxcala""Tlaxcala"),
-      new Array("México","Veracruz""Veracruz"),
-      new Array("México","Yucatán""Yucatán"),
-      new Array("México","Zacatecas""Zacatecas")
-
-    );
-    if(valor=!'México')
-    {
-        // desactivamos el segundo select
-        document.getElementById("select2").disabled=true;
-    }else{
-        // eliminamos todos los posibles valores que contenga el select2
-        document.getElementById("select2").options.length=0;
-
-        // añadimos los nuevos valores al select2
-        document.getElementById("select2").options[0]=new Option("Selecciona una opcion", "0");
-        for(i=0;i<arrayValores.length;i++)
-        {
-            // unicamente añadimos las opciones que pertenecen al id seleccionado
-            // del primer select
-            if(arrayValores[i][0]==valor)
-            {
-                document.getElementById("select2").options[document.getElementById("select2").options.length]=new Option(arrayValores[i][2], arrayValores[i][1]);
-            }
-        }
-
-        // habilitamos el segundo select
-        document.getElementById("select2").disabled=false;
-    }
-}
-
-/**
- * FErnandoUna vez selecciona una valor del segundo selecte, obtenemos la información
- * de los dos selects y la mostramos
- */
-function seleccinado_select2(value)
-{
-    var v1 = document.getElementById("select1");
-    var valor1 = v1.options[v1.selectedIndex].value;
-    var text1 = v1.options[v1.selectedIndex].text;
-    var v2 = document.getElementById("select2");
-    var valor2 = v2.options[v2.selectedIndex].value;
-    var text2 = v2.options[v2.selectedIndex].text;
-
-    alert("Se ha seleccionado el valor "+valor1+" ("+text1+") del primer select y el valor "+valor2+" ("+text2+") del segundo select");
-}
-</script>
+<script type="text/javascript" src="js/selects.js"></script>
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -214,24 +129,6 @@ function seleccinado_select2(value)
 <!-- Service Section
     ================================================== -->
 <div class="comop" id="comop">
-  <!---->
-  <form>
-    <p>
-        <select id='select1' onchange='cargarSelect2(this.value);'>
-            <option value='0'>Selecciona una opcion</option>
-            <option value='1'>opcion 1</option>
-            <option value='México'>México</option>
-            <option value='3'>opcion 3</option>
-        </select>
-    </p>
-
-    <p>
-        <select id='select2' onchange='seleccinado_select2();' disabled>
-            <option value='0'>Selecciona una opcion</option>
-        </select>
-    </p>
-</form>
-<!---->
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -735,10 +632,10 @@ function seleccinado_select2(value)
 </div>
 <!-- / blog Close -->
 <div class="clearfix"></div>
-<?php 
+<?php
     if(!$_SESSION['entorno']['usuario_email'])
     {
-                                
+
                               ?>
 <div class="registro" id="registro">
   <div class="container">
@@ -789,228 +686,22 @@ function seleccinado_select2(value)
                      </div>
                      <div class="input-group">
                           <span class="input-group-addon">Pais</span>
-                          <select size="1" name="pais" id="pais" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;Pais\&#39;,\&#39;\&#39;)&#39;, 0)" class="form-control">
-                            <option value="AFGANISTAN">AFGANISTAN</option>
-                            <option value="ALBANIA">ALBANIA</option>
-                            <option value="ALEMANIA">ALEMANIA</option>
-                            <option value="ANDORRA">ANDORRA</option>
-                            <option value="ANGOLA">ANGOLA</option>
-                            <option value="ANGUILA">ANGUILA</option>
-                            <option value="ANTIGUA">ANTIGUA</option>
-                            <option value="ARABIA SAUDITA">ARABIA SAUDITA</option>
-                            <option value="ARGELIA">ARGELIA</option>
-                            <option value="ARGENTINA">ARGENTINA</option>
-                            <option value="ARMENIA">ARMENIA</option>
-                            <option value="ARUBA">ARUBA</option>
-                            <option value="AUSTRALIA">AUSTRALIA</option>
-                            <option value="AUSTRIA">AUSTRIA</option>
-                            <option value="AZERBAYAN">AZERBAYAN</option>
-                            <option value="BAHAMAS">BAHAMAS</option>
-                            <option value="BAHREIN">BAHREIN</option>
-                            <option value="BANGLADESH">BANGLADESH</option>
-                            <option value="BARBADOS">BARBADOS</option>
-                            <option value="BARBUDA">BARBUDA</option>
-                            <option value="BELGICA">BELGICA</option>
-                            <option value="BELICE">BELICE</option>
-                            <option value="BENIN">BENIN</option>
-                            <option value="BERMUDAS">BERMUDAS</option>
-                            <option value="BIELORRUSIA">BIELORRUSIA</option>
-                            <option value="BOLIVIA">BOLIVIA</option>
-                            <option value="BONAIRE">BONAIRE</option>
-                            <option value="BOSNIA HERZEGOVINA">BOSNIA HERZEGOVINA</option>
-                            <option value="BOTSWANA">BOTSWANA</option>
-                            <option value="BRASIL">BRASIL</option>
-                            <option value="BRUNEI DARUSSALAM">BRUNEI DARUSSALAM</option>
-                            <option value="BULGARIA">BULGARIA</option>
-                            <option value="BURKINA FASO">BURKINA FASO</option>
-                            <option value="BURUNDI">BURUNDI</option>
-                            <option value="BUTAN">BUTAN</option>
-                            <option value="CABO VERDE">CABO VERDE</option>
-                            <option value="CAMBOYA">CAMBOYA</option>
-                            <option value="CAMERUN">CAMERUN</option>
-                            <option value="CANADA">CANADA</option>
-                            <option value="CHAD">CHAD</option>
-                            <option value="CHILE">CHILE</option>
-                            <option value="CHINA">CHINA</option>
-                            <option value="CHIPRE">CHIPRE</option>
-                            <option value="COLOMBIA">COLOMBIA</option>
-                            <option value="CONGO">CONGO</option>
-                            <option value="COREA DEL SUR">COREA DEL SUR</option>
-                            <option value="COSTA DE MARFIL">COSTA DE MARFIL</option>
-                            <option value="COSTA RICA">COSTA RICA</option>
-                            <option value="CROACIA">CROACIA</option>
-                            <option value="CUBA">CUBA</option>
-                            <option value="CURACAO">CURACAO</option>
-                            <option value="DINAMARCA">DINAMARCA</option>
-                            <option value="DJIBOUTI">DJIBOUTI</option>
-                            <option value="DOMINICA">DOMINICA</option>
-                            <option value="ECUADOR">ECUADOR</option>
-                            <option value="EGIPTO">EGIPTO</option>
-                            <option value="EL SALVADOR">EL SALVADOR</option>
-                            <option value="Elija un país">Elija un pa&#237;s</option>
-                            <option value="EMIRATOS ARABES UNIDOS">EMIRATOS ARABES UNIDOS</option>
-                            <option value="ERITREA">ERITREA</option>
-                            <option value="ESLOVENIA">ESLOVENIA</option>
-                            <option value="ESPAÑA">ESPA&#209;A</option>
-                            <option value="ESTADOS UNIDOS DE AMERICA">ESTADOS UNIDOS DE AMERICA</option>
-                            <option value="ESTONIA">ESTONIA</option>
-                            <option value="ETIOPIA">ETIOPIA</option>
-                            <option value="FILIPINAS">FILIPINAS</option>
-                            <option value="FINLANDIA">FINLANDIA</option>
-                            <option value="FRANCIA">FRANCIA</option>
-                            <option value="GABON">GABON</option>
-                            <option value="GALES">GALES</option>
-                            <option value="GAMBIA">GAMBIA</option>
-                            <option value="GHANA">GHANA</option>
-                            <option value="GIBRALTAR">GIBRALTAR</option>
-                            <option value="GRANADA">GRANADA</option>
-                            <option value="GRECIA">GRECIA</option>
-                            <option value="GROENLANDIA">GROENLANDIA</option>
-                            <option value="GUADALUPE">GUADALUPE</option>
-                            <option value="GUAM">GUAM</option>
-                            <option value="GUATEMALA">GUATEMALA</option>
-                            <option value="GUAYANA">GUAYANA</option>
-                            <option value="GUAYANA FRANCESA">GUAYANA FRANCESA</option>
-                            <option value="GUINEA">GUINEA</option>
-                            <option value="GUINEA ECUATORIAL">GUINEA ECUATORIAL</option>
-                            <option value="HAITI">HAITI</option>
-                            <option value="HOLANDA">HOLANDA</option>
-                            <option value="HONDURAS">HONDURAS</option>
-                            <option value="HONG KONG">HONG KONG</option>
-                            <option value="HUNGRIA">HUNGRIA</option>
-                            <option value="INDIA">INDIA</option>
-                            <option value="INDONESIA">INDONESIA</option>
-                            <option value="INGLATERRA">INGLATERRA</option>
-                            <option value="IRAQ">IRAQ</option>
-                            <option value="IRLANDA">IRLANDA</option>
-                            <option value="IRLANDA DEL NORTE">IRLANDA DEL NORTE</option>
-                            <option value="ISLANDIA">ISLANDIA</option>
-                            <option value="ISLAS CAIMAN">ISLAS CAIMAN</option>
-                            <option value="ISLAS COOK">ISLAS COOK</option>
-                            <option value="ISLAS FEROE">ISLAS FEROE</option>
-                            <option value="ISLAS FIJI">ISLAS FIJI</option>
-                            <option value="ISLAS MARSHALL">ISLAS MARSHALL</option>
-                            <option value="ISLAS REUNION">ISLAS REUNION</option>
-                            <option value="ISLAS VIRGENES AMERICANAS">ISLAS VIRGENES AMERICANAS</option>
-                            <option value="ISLAS VIRGENES BRITANICAS">ISLAS VIRGENES BRITANICAS</option>
-                            <option value="ISRAEL">ISRAEL</option>
-                            <option value="ITALIA">ITALIA</option>
-                            <option value="JAMAICA">JAMAICA</option>
-                            <option value="JAPON">JAPON</option>
-                            <option value="JORDANIA">JORDANIA</option>
-                            <option value="KAZAJSTAN">KAZAJSTAN</option>
-                            <option value="KENIA">KENIA</option>
-                            <option value="KIRGUIZISTAN">KIRGUIZISTAN</option>
-                            <option value="KUWAIT">KUWAIT</option>
-                            <option value="LAOS">LAOS</option>
-                            <option value="LESOTO">LESOTO</option>
-                            <option value="LIBANO">LIBANO</option>
-                            <option value="LIBERIA">LIBERIA</option>
-                            <option value="LIBYA">LIBYA</option>
-                            <option value="LIECHTENSTEIN">LIECHTENSTEIN</option>
-                            <option value="LITUANIA">LITUANIA</option>
-                            <option value="LUXEMBURGO">LUXEMBURGO</option>
-                            <option value="MACAO">MACAO</option>
-                            <option value="MACEDONIA">MACEDONIA</option>
-                            <option value="MADAGASCAR">MADAGASCAR</option>
-                            <option value="MALASIA">MALASIA</option>
-                            <option value="MALAWI">MALAWI</option>
-                            <option value="MALDIVAS">MALDIVAS</option>
-                            <option value="MALI">MALI</option>
-                            <option value="MALTA">MALTA</option>
-                            <option value="MARRUECOS">MARRUECOS</option>
-                            <option value="MARTINICA">MARTINICA</option>
-                            <option value="MAURICIO">MAURICIO</option>
-                            <option value="MAURITANIA">MAURITANIA</option>
-                            <option selected="selected" value="MEXICO">MEXICO</option>
-                            <option value="MICRONESIA">MICRONESIA</option>
-                            <option value="MOLDAVIA">MOLDAVIA</option>
-                            <option value="MONACO">MONACO</option>
-                            <option value="MONGOLIA">MONGOLIA</option>
-                            <option value="MONSERRAT">MONSERRAT</option>
-                            <option value="MOZAMBIQUE">MOZAMBIQUE</option>
-                            <option value="NAMIBIA">NAMIBIA</option>
-                            <option value="NEPAL">NEPAL</option>
-                            <option value="NICARAGUA">NICARAGUA</option>
-                            <option value="NIGER">NIGER</option>
-                            <option value="NIGERIA">NIGERIA</option>
-                            <option value="NORUEGA">NORUEGA</option>
-                            <option value="NUEVA CALEDONIA">NUEVA CALEDONIA</option>
-                            <option value="NUEVA ZELANDA">NUEVA ZELANDA</option>
-                            <option value="OMAN">OMAN</option>
-                            <option value="PAKISTAN">PAKISTAN</option>
-                            <option value="PALAOS">PALAOS</option>
-                            <option value="PALESTINA">PALESTINA</option>
-                            <option value="PANAMA">PANAMA</option>
-                            <option value="PAPUASIA NUEVA GUINEA">PAPUASIA NUEVA GUINEA</option>
-                            <option value="PARAGUAY">PARAGUAY</option>
-                            <option value="PERU">PERU</option>
-                            <option value="POLINESIA FRANCESA">POLINESIA FRANCESA</option>
-                            <option value="POLONIA">POLONIA</option>
-                            <option value="PORTUGAL">PORTUGAL</option>
-                            <option value="PUERTO RICO">PUERTO RICO</option>
-                            <option value="QATAR">QATAR</option>
-                            <option value="REPUBLICA CHECA">REPUBLICA CHECA</option>
-                            <option value="REPUBLICA DE GEORGIA">REPUBLICA DE GEORGIA</option>
-                            <option value="REPUBLICA DE LETONIA">REPUBLICA DE LETONIA</option>
-                            <option value="REPUBLICA DOMINICANA">REPUBLICA DOMINICANA</option>
-                            <option value="REPUBLICA ESLOVACA">REPUBLICA ESLOVACA</option>
-                            <option value="REUNION">REUNION</option>
-                            <option value="RUANDA">RUANDA</option>
-                            <option value="RUMANIA">RUMANIA</option>
-                            <option value="RUSIA">RUSIA</option>
-                            <option value="SAMOA">SAMOA</option>
-                            <option value="SAMOA AMERICANA">SAMOA AMERICANA</option>
-                            <option value="SAN BARTOLOME">SAN BARTOLOME</option>
-                            <option value="SAN CRISTOBAL Y NEVIS">SAN CRISTOBAL Y NEVIS</option>
-                            <option value="SAN EUSTAQUIO">SAN EUSTAQUIO</option>
-                            <option value="SAN MARTIN">SAN MARTIN</option>
-                            <option value="SAN VICENTE">SAN VICENTE</option>
-                            <option value="SANTA LUCIA">SANTA LUCIA</option>
-                            <option value="SENEGAL">SENEGAL</option>
-                            <option value="SERBIA Y MONTE NEGRO">SERBIA Y MONTE NEGRO</option>
-                            <option value="SEYCHELLES">SEYCHELLES</option>
-                            <option value="SINGAPUR">SINGAPUR</option>
-                            <option value="SIRIA">SIRIA</option>
-                            <option value="SRI LANKA">SRI LANKA</option>
-                            <option value="SUAZILANDIA">SUAZILANDIA</option>
-                            <option value="SUDAFRICA">SUDAFRICA</option>
-                            <option value="SUECIA">SUECIA</option>
-                            <option value="SUIZA">SUIZA</option>
-                            <option value="SURINAM">SURINAM</option>
-                            <option value="TAILANDIA">TAILANDIA</option>
-                            <option value="TAIWAN">TAIWAN</option>
-                            <option value="TANZANIA">TANZANIA</option>
-                            <option value="TIMOR DEL ESTE">TIMOR DEL ESTE</option>
-                            <option value="TOGO">TOGO</option>
-                            <option value="TRINIDAD Y TOBAGO">TRINIDAD Y TOBAGO</option>
-                            <option value="TUNEZ">TUNEZ</option>
-                            <option value="TURCOS Y CAICOS">TURCOS Y CAICOS</option>
-                            <option value="TURQUIA">TURQUIA</option>
-                            <option value="UCRANIA">UCRANIA</option>
-                            <option value="UGANDA">UGANDA</option>
-                            <option value="URUGUAY">URUGUAY</option>
-                            <option value="UZBEKISTAN">UZBEKISTAN</option>
-                            <option value="VANUATU">VANUATU</option>
-                            <option value="VENEZUELA">VENEZUELA</option>
-                            <option value="VIETNAM">VIETNAM</option>
-                            <option value="WALLIS Y FUTUNA">WALLIS Y FUTUNA</option>
-                            <option value="YEMEN">YEMEN</option>
-                            <option value="ZAIRE">ZAIRE</option>
-                            <option value="ZAMBIA">ZAMBIA</option>
-                            <option value="ZIMBAWE">ZIMBAWE</option>
-
-                            </select>
-
+                          <select name="pais" id="pais" class="form-control">
+                              <option value='0'>Selecciona un pais</option>
+                              <?php
+                              # llenamos los valores del pais de la base de datos
+                              $sql="SELECT * FROM Paises ORDER BY Pais";
+                              foreach($dbh->query($sql) as $row)
+                              {
+                                  echo "<option value='".$row["Codigo"]."'>".$row["Pais"]."</option>";
+                              }
+                              ?>
+                          </select>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon">Ciudad</span>
-                                <select size="1" name="lstCiudad" id="lstCiudad" class="form-control">
-                            <option value=" Elija un estado"> Elija un estado</option>
-                            </select>
-                            <select id='select2' onchange='seleccinado_select2();' disabled>
-                                <option value='0'>Selecciona una opcion</option>
-                            </select>
+                                <select name="ciudad" id="ciudad" disabled>
+                                </select>
                             </div>
                             <div class="form-group">
                             <span class="input-group-addon">Contraseña</span>
@@ -1024,12 +715,12 @@ function seleccinado_select2(value)
   </div>
 </div>
 
-<?php 
+<?php
     }
     else
-    { 
-        categorias(); 
-    }  
+    {
+        categorias();
+    }
 ?>
 
 <!-- /Parte de llenar video-->
