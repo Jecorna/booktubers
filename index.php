@@ -35,7 +35,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
 <link href="css/style.css" rel="stylesheet" type="text/css" >
 <link href="css/booktubers.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Merriweather|Raleway" rel="stylesheet">
-<script type="text/javascript" src="js/selects.js"></script>
+
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -689,18 +689,13 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                           <select name="pais" id="pais" class="form-control">
                               <option value='0'>Selecciona un pais</option>
                               <?php
-                              # llenamos los valores del pais de la base de datos
-                              $sql="SELECT * FROM Paises ORDER BY Pais";
-                              foreach($dbh->query($sql) as $row)
-                              {
-                                  echo "<option value='".$row["Codigo"]."'>".$row["Pais"]."</option>";
-                              }
+                                paises();
                               ?>
                           </select>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon">Ciudad</span>
-                                <select name="ciudad" id="ciudad" disabled>
+                                <select name="ciudad" id="ciudad" class="form-control" disabled>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -824,6 +819,7 @@ $(document).on("ready",function(){
         }
 });
 </script>
+<script type="text/javascript" src="js/selects.js"></script>
 
 </body>
 </html>

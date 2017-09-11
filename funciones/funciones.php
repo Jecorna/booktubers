@@ -79,5 +79,41 @@ session_start();
   </div>
 </div>";
      }
+     
+     /**
+      * Función que carga los países
+      */
+      
+     function paises()
+     {
+        include 'conexion.php';
+        $sqltitulos = "SELECT * FROM Paises ORDER BY Pais";
+        $resulttitulos = mysqli_query($conexion, $sqltitulos);
+        if (mysqli_num_rows($resulttitulos) > 0)
+        {
+            while($row = mysqli_fetch_assoc($resulttitulos)) {
+                echo "<option value='".$row["Codigo"]."'>".$row["Pais"]."</option>";
+            }
+        }
+     }
+     
+     /**
+      * Adquiere el post del pais
+      */
+     if($_POST['idpais'])
+     {
+        include 'conexion.php';
+        $sqlciudades = "SELECT * FROM Ciudades where Paises_Codigo='".$_POST['idpais']."' ORDER BY Ciudad";
+        $resultciudades = mysqli_query($conexion, $sqlciudades);
+        $ciudades='';
+        if (mysqli_num_rows($resultciudades) > 0)
+        {
+            while($rowc = mysqli_fetch_assoc($resultciudades)) {
+                $ciudades.= "<option value='".$rowc["idciudades"]."'>".$rowc["Ciudad"]."</option>";
+            }
+        }
+        //$data="<option value='2'>Ciudad</option>";
+        echo $ciudades;
+     }
     
 ?>
