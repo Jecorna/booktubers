@@ -50,7 +50,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <a class="navbar-brand" href="#homeSlider">Booktubers</a> </div>
+        <a class="navbar-brand" href="#homeSlider">Concurso Internacional de Booktubers</a> </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li><a href="#home">Inicio</a></li>
@@ -70,8 +70,8 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
           <!--
 <li><button type="button" class="btn  btn-info" data-toggle="modal" data-target="#trabajando" style="margin-left:40px; margin-top:5px; margin-right: -15px;">Registro</button></li>
 -->
-          <li style="display:none;"><a href="#registro">Registro</a></li>
-          <li><a href="http://www.fondodeculturaeconomica.com/invitaciones/2017/ConvocatoriaBooktubers2017.pdf">Convocatoria</a></li>
+          <li> <a href="#libros">Libros Participantes</a></li>
+          <li><a target="_blank" href="http://www.fondodeculturaeconomica.com/invitaciones/2017/ConvocatoriaBooktubers2017.pdf">Convocatoria</a></li>
         </ul>
       </div>
     </div>
@@ -85,23 +85,35 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
   <div id="homeSlider" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="item active">
+              <div class="img-ri">
         <img class="img-responsive img-princ" src="images/Recursos/LibrosSFdo.png" alt="">
+      </div>
           <div class="carousel-caption">
             <div class="cont-princ">
               <div class="slide-logo img-responsive"><img class="img-logo-b" src="images/Recursos/logoOrilladelViento.png" alt=""></div>
               <div class="texto-intr">
-                <p class="sltext">Para celebrar los 25 años de la colección A la Orilla del Viento, dirigida a lectores como tú, la Secretaría de Relaciones Exteriores y el Fondo de Cultura Económica te invitan a compartir tus experiencias con nuestros libros y a participar como Booktuber en este concurso</p>
-                <ul class="lista-nav">
+                <p class="sltext">El Fondo de Cultura Económica te está buscando. Lee uno de nuestros libros, graba tu reseña y comparte tus experiencias lectoras, ¡conviértete en Booktuber!</p>
+                <!--<ul class="lista-nav">
                   <li><button class="ingresa" type="button" data-toggle="modal" data-target="#myModal">Ingresa</button></li>
                   <li><a href="#comop">¿Cómo participo?</a></li>
                   <li><a href="#about">Bases</a></li>
                   <li><a href="http://www.fondodeculturaeconomica.com/invitaciones/2017/ConvocatoriaBooktubers2017.pdf" target="_blank">Ver Convocatoria</a></li>
-                </ul>
+                </ul>-->
               </div>
 
             </div>
             <div class="img-logo-b">
-              <a class="getst" href="#registro" role="button">Crea una cuenta</a>
+              <?php
+                if(!$_SESSION['entorno']['usuario_email'])
+                {
+                    echo "<a class='btn-book2 btn-book' href='#registro' role='button'>Crea una cuenta</a>";
+                }
+                else
+                {
+                    echo "<a class='btn-book2 btn-book' href='#registro' role='button'>Sube Tus videos aqui</a>";
+                }
+              ?>
+
             </div>
             </div>
 
@@ -122,10 +134,10 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
         </div>
       </div>-->
     </div>
-    <!-- Indicators -->
+    <!-- Indicators
     <ol class="carousel-indicators">
       <li data-target="#homeSlider" data-slide-to="0" class="active"></li>
-      <!--<li data-target="#homeSlider" data-slide-to="1"></li>-->
+      <li data-target="#homeSlider" data-slide-to="1"></li>-->
     </ol>
   </div>
 </div>
@@ -137,7 +149,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <img src="images/Recursos/Como2017.png" alt="">
+        <img class="img-como" src="images/Recursos/Como2017.png" alt="">
       </div>
       <div class="col-md-9">
         <div class="txt-como">
@@ -158,8 +170,8 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
           				                <ul class="books">
           					                <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100395L"><i>El cristal con que se mira,</i> de Alicia Molina</a></li>
           					                <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100145L"><i>Los muchachos no escriben historias de amo,</i> de Brian Keaney</a></li>
-          					                <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100420L"><i>La Casa de los Tres Perros,</i> de Agustín Cadena Rubio</a></li>
-          					                <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100392L"><i>Reckless. El goyl de jade,</i> de Cornelia Funke, y Lionel Wigram</a></li>
+          					                <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100420L"><i>La Casa de los Tres Perros,</i> de Agustín Cadena </a></li>
+          					                <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100392L"><i>Reckless. El goyl de jade,</i> de Cornelia Funke</a></li>
           				                </ul>
           			                </li>
                                 <li><span class="lespecial">Categoría C</span>
@@ -174,7 +186,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
           	                </li>
           	                <li> Ve a tu librería más cercana o cómpralo en nuestra <a href="https://elfondoenlinea.com/Libreria.aspx">librería virtual</a></li>
           	                <li> Cuando hayas terminado tu lectura, te invitamos a pensar qué te pareció,  y a contarnos tus opiniones, graba tu video de <b>3 minutos</b> máximo en un celular, tableta o computadora. El nombre de tu video debe contener el hashtag #LeoyCompartoFCE + título del libro que hayas elegido: #LeoyCompartoFCE "Título del libro"</li>
-          	                <li> Listo, ahora ¡súbelo a <a target="_blank" href="http://www.youtube.com/">YouTube</a>!  <a href="https://support.google.com/youtube/answer/57407?hl=mx" target="_blank" class="ayuda">ayuda</a>
+          	                <li> Selecciona el vídeo que desees compartir. ¡Súbelo a <a target="_blank" href="http://www.youtube.com/">YouTube</a>! En este enlace puedes encontrar ayuda <a href="https://support.google.com/youtube/answer/57407?hl=mx" target="_blank" class="ayuda">ayuda</a>
           		                <ul>
           			                <li>Accede a YouTube y crea tu cuenta.</li>
           			                <li>Haz clic donde dice Subir video (parte superior de la página).</li>
@@ -184,7 +196,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                                 <li>Selecciona la opción Compartir (<i>Share</i>) y copia el enlace que aparece.</li>
           		                </ul>
           	                </li>
-          	                <li> Regístrate en nuestra <a target="_blank" href="https://www.fondodeculturaeconomica.com/Editorial.aspx">página</a> y sube el enlace de tu video.
+          	                <li> Regístrate en nuestra página y pega el enlace de tu video.
                                   Asegúrate de que funciona correctamente.
           	                </li>
                           <ol>
@@ -218,7 +230,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
             Cultura Digital.
             </li>
             <li>
-              C. El video deberá ser de 1 a 3 minutos de duración, de no ser así, será descalificado. Se
+              C. El video deberá ser de <span class="fechasr">1 a 3 minutos</span> de duración, de no ser así, será descalificado. Se
               valorarán las opiniones personales de los participantes más que los resúmenes de los
               libros
             </li>
@@ -257,7 +269,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                 www.fondodeculturaeconomica.com por un adulto responsable
               </li>
               <li>
-                F. Los videos se recibirán desde el 1 de septiembre de 2017 hasta el 31 de enero de 2018.
+                F. Los videos se recibirán desde el <span class="fechasr">1 de septiembre de 2017 hasta el 31 de enero de 2018.</span>
                 No se aceptarán extemporáneos bajo ninguna circunstancia.
               </li>
               <li>
@@ -275,9 +287,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
           <ul>
             <li>
               H. El fallo del jurado será inapelable y se dará a conocer por correo electrónico a los
-              participantes el 16 de marzo de 2018, en la página del FCE y en las redes sociales. Ese
+              participantes el <span class="fechasr">16 de marzo de 2018</span>, en la página del FCE y en las redes sociales. Ese
               mismo día se dará a conocer el lugar de la ceremonia de premiación, la cual se llevará a
-              cabo el 31 de marzo de 2018.
+              cabo el <span class="fechasr">31 de marzo de 2018.</span>
               </li>
             <li>
               I. Cualquier caso no previsto en esta convocatoria será resuelto por el Fondo de Cultura
@@ -306,10 +318,10 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
     <div id="videoDiv">
     <div id="videoBlock">
     <video preload="preload" id="video" controls>
-    <source src="images/Recursos/Nacho_convocatoria.mp4" type="video/mp4"></source>
+    <source src="images/Recursos/comohacer.mp4" type="video/mp4"></source>
     </video>
     <div id="videoMessage">
-    <h1>Ignacio Padilla te invita a participar</h1>
+    <h1>Alberto Chimal y Raquel Castro les dan consejos para hacer una buena video reseña</h1>
     <p class="videoClick" >
     <a href="#registro">Registrate</a>
     </p>
@@ -321,10 +333,10 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
 <div class="clearfix"></div>
 <!-- Our Team Section
     ================================================== -->
-<div class="ourteam" id="">
+<div class="ourteam" id="libros">
   <div class="container lbla">
     <div class="head_section">
-      <h2>Libros participantes</h2>
+      <h1>Libros participantes</h1>
       <div class="team-carousel-control"> <a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a> </div>
     </div>
   </div>
@@ -340,9 +352,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Volar</h4>
                     <span class="designation">Reyes, Yolanda</span>
-                    <p>categoría A </p>
+                    <h5>Categoría A </h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100421L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100421L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -353,9 +365,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Quiero ser la que seré</h4>
                     <span class="designation">Molina, Silvia</span>
-                    <p>categoría A </p>
+                    <h5>Categoría A </h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100419L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100419L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -366,9 +378,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Sombras en el arcoíris</h4>
                     <span class="designation">Brozon, Mónica B.</span>
-                    <p>categoría A </p>
+                    <h5>Categoría A </h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100417L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100417L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -379,9 +391,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Tito y el misterioso Amicus</h4>
                     <span class="designation">Rosell, Joel Franz</span>
-                    <p>categoría A </p>
+                    <h5>Categoría A </h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100418L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100418L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -396,9 +408,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">El cristal con que se mira</h4>
                     <span class="designation">Molina, Alicia</span>
-                    <p>categoría B </p>
+                    <h5>Categoría B</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100395L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100395L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -409,9 +421,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Los muchachos no escriben historias de amor</h4>
                     <span class="designation">Keaney, Brian</span>
-                    <p>categoría B </p>
+                    <h5>Categoría B</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100145L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100145L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -422,9 +434,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">La Casa de los Tres Perros</h4>
                     <span class="designation">Cadena Rubio, Agustín</span>
-                    <p>categoría B </p>
+                    <h5>Categoría B</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100420L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100420L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -435,9 +447,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Reckless. El goyl de jade</h4>
                     <span class="designation">Funke, Cornelia, y Lionel Wigram</span>
-                    <p>categoría B </p>
+                    <h5>Categoría B</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=100392L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=100392L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -452,9 +464,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">El corazón de Juliette</h4>
                     <span class="designation">Mafi, Tahereh</span>
-                    <p>categoría C </p>
+                    <h5>Categoría  C</h5>
                     <ul class="member_social">
-                      <li><a href="hhttps://elfondoenlinea.com/Detalle.aspx?ctit=102729L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="hhttps://elfondoenlinea.com/Detalle.aspx?ctit=102729L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -465,9 +477,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Nashville o el juego del lobo</h4>
                     <span class="designation">Michaelis, Antonia</span>
-                    <p>categoría C </p>
+                    <h5>Categoría  C</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=102730L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=102730L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -478,9 +490,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">El camino de los muertos</h4>
                     <span class="designation">Brooks, Kevin</span>
-                    <p>categoría C </p>
+                    <h5>Categoría  C</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=102721L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=102721L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -491,9 +503,9 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                   <div class="info">
                     <h4 class="name">Última escala en ninguna parte</h4>
                     <span class="designation">Padilla, Ignacio</span>
-                    <p>categoría C </p>
+                    <h5>Categoría  C</h5>
                     <ul class="member_social">
-                      <li><a href="https://elfondoenlinea.com/Detalle.aspx?ctit=102731L"><i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i></a></li>
+                      <li><a target="_blank" href="https://elfondoenlinea.com/Detalle.aspx?ctit=102731L"><i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -509,7 +521,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
 <!-- / our team close -->
 <div class="clearfix"></div>
 <!-- Video 02
-    ================================================== -->
+    ==================================================
     <div class="video_uno">
     <div id="videoDiv">
     <div id="videoBlock">
@@ -525,7 +537,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
     </div>
     </div>
     </div>
-<!-- / video Close Close -->
+ / video Close Close -->
 
 <div class="clearfix"></div>
 
@@ -533,8 +545,11 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
     ================================================== -->
 <div class="blog" id="team">
   <div class="container">
-    <div class="head_section lbla">
-      <img src="images/Recursos/Consejos.png" alt="">
+    <div class="head_section">
+
+        <img src="images/Recursos/Consejos.png" alt="">
+
+
     </div>
     <div class="row">
       <div class="txt_consejos lbla">
@@ -544,7 +559,6 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
               <li>No necesitas una súper cámara, la de un celular o tableta sirve; lo que importa es que te sientas motivado. Pide ayuda si te cuesta grabarte a ti mismo.</li>
               <li>Corta (edita) los pedazos del video repetitivos o que sientas que no tienen interés para los demás. </li>
               <li>¡Da tu opinión! Piensa si el tema te parece interesante y está bien tratado, platica si te gusta o no y por qué. Tus comentarios son únicos.</li>
-              <li>Habla de los personajes, ¿cuál fue tu preferido? ¿Te desagradó alguno? ¿Les cambiarías algo? ¿Te parece que podrían existir en la vida real?</li>
               <li>Puedes mencionar que hay sucesos inesperados pero no digas cuáles con el fin de que despiertes en otros lectores las ganas de leerlo.</li>
               <li>Decir algo interesante en poco tiempo es mejor que hacer un video largo, así que resume tu experiencia en menos de tres minutos. </li>
               <li>No cuentes todo el libro, y mucho menos el final, así despertarás la curiosidad del que te mira; recuerda que a todos nos gustan las sorpresas.</li>
@@ -732,12 +746,12 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
   <div class="container lbla">
     <p>© 2017 Fondo de cultura ecónomica - Todos los derechos reservados </p>
     <ul>
-      <li><a href="#"><img src="images/Recursos/logo1.png" alt=""></a></li>
-      <li><a href="#"><img src="images/Recursos/logo2.png" alt=""></a></li>
-      <li><a href="#"><img src="images/Recursos/logo3.png" alt=""></a></li>
-      <li><a href="#"><img src="images/Recursos/logo4.png" alt=""></a></li>
-      <li><a href="#"><img src="images/Recursos/logo5.png" alt=""></a></li>
-      <li><a href="#"><img src="images/Recursos/logo6.png" alt=""></a></li>
+      <li><a target="_blank" href="https://www.gob.mx/cultura"><img src="images/Recursos/logo1.png" alt=""></a></li>
+      <li><a target="_blank" href="https://www.gob.mx/sre"><img src="images/Recursos/logo2.png" alt=""></a></li>
+      <li><a target="_blank" href="http://www.centroculturadigital.mx/"><img src="images/Recursos/logo3.png" alt=""></a></li>
+      <li><a target="_blank" href="https://www.fondodeculturaeconomica.com/Editorial.aspx"><img src="images/Recursos/logo4.png" alt=""></a></li>
+      <li><a target="_blank" href="http://www.sep.gob.mx/"><img src="images/Recursos/logo5.png" alt=""></a></li>
+      <li><a target="_blank" href="https://www.gob.mx/amexcid"><img src="images/Recursos/logo6.png" alt=""></a></li>
 
     </ul>
   </div>
@@ -818,7 +832,7 @@ $(document).on("ready",function(){
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
         var ecode = getParameterByName('ec');
-        
+
         if(ecode)
         {
             $("html,body").animate({ scrollTop : $("#registro").offset().top  }, 1500 );
@@ -890,7 +904,7 @@ $(document).on("ready",function(){
                 });
             }
         }
-        
+
 });
 </script>
 <script type="text/javascript" src="js/selects.js"></script>
