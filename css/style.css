@@ -754,8 +754,8 @@ a, button, .button, .price-box, .service_tiem, .pmask, .pimg-wrap img {
 	overflow: hidden;
 }
 .member .photo img {
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
+	border-radius: 10%;
+	-webkit-border-radius: 10%;
 }
 .member .info {
 	position: relative;
