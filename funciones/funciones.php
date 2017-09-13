@@ -72,12 +72,53 @@ session_start();
 
 
 
-  </form>
+  </form><br /><br />
+  <center><table style='text-align: center;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #503882;
+  width: 700px;
+  margin: 50px auto;
+  border-radius: .25rem;'>
+    <thead>
+    <tr style='background: #503882;
+  color: #fff;
+  border: none;padding: 0 15px 0 20px;'>
+        <th>Categor&iacute;a</th>
+        <th>Libro</th>
+        <th>Fecha</th>
+        <th>Liga</th>
+        </tr>
+    </thead>
+    <tbody>";
+        $sqlnumligas = "select * from booktubers_entradas be left join booktubers_titulos bt on be.booktubers_entradas_titulos_id=bt.booktubers_titulos_id where be.booktubers_entradas_usuarios_id=".$_SESSION['entorno']['usuario_id']." ";
+        $resulnumligas = mysqli_query($conexion, $sqlnumligas);
+        if (mysqli_num_rows($resulnumligas) > 0)
+        {
+            while($rownl = mysqli_fetch_assoc($resulnumligas)) {
+                echo "<tr><td>".$rownl["booktubers_entradas_titulos_id"]."</td>
+                <td>".$rownl["booktubers_titulos_titulo"]."</td>
+                <td>".$rownl["booktubers_entradas_fechaentrada"]."</td>
+                <td><a href='".$rownl["booktubers_entradas_ligavideo"]."' target='_blank'>".$rownl["booktubers_entradas_ligavideo"]."</a></td></tr>";
+            }
+        }
+    echo "</tbody>
+</table></center>
         </div>
       </div>
     </div>
   </div>
 </div>";
+     }
+     
+     /**
+      * Función que carga el historial de las ligas subidas
+      */
+     
+     function historial()
+     {
+        echo "dfdsfdsf<table><thead><th>Yo</th><tr><td>dd</td></tr></thead></table>";
      }
      
      /**

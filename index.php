@@ -86,19 +86,13 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
     <div class="carousel-inner">
       <div class="item active">
               <div class="img-ri">
-        <img class="img-responsive img-princ" src="images/Recursos/LibrosSFdo.png" alt="">
+        <img class="img-responsive img-princ" src="images/Recursos/bannermorado.jpg" alt="">
       </div>
           <div class="carousel-caption">
             <div class="cont-princ">
               <div class="slide-logo img-responsive"><img class="img-logo-b" src="images/Recursos/logoOrilladelViento.png" alt=""></div>
               <div class="texto-intr">
                 <p class="sltext">El Fondo de Cultura Económica te está buscando. Lee uno de nuestros libros, graba tu reseña y comparte tus experiencias lectoras, ¡conviértete en Booktuber!</p>
-                <!--<ul class="lista-nav">
-                  <li><button class="ingresa" type="button" data-toggle="modal" data-target="#myModal">Ingresa</button></li>
-                  <li><a href="#comop">¿Cómo participo?</a></li>
-                  <li><a href="#about">Bases</a></li>
-                  <li><a href="http://www.fondodeculturaeconomica.com/invitaciones/2017/ConvocatoriaBooktubers2017.pdf" target="_blank">Ver Convocatoria</a></li>
-                </ul>-->
               </div>
 
             </div>
@@ -106,11 +100,11 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
               <?php
                 if(!$_SESSION['entorno']['usuario_email'])
                 {
-                    echo "<a class='btn-book2 btn-book' href='#registro' role='button'>Crea una cuenta</a>";
+                    echo "<a class='getst' href='#registro' role='button'>Crea una cuenta</a>";
                 }
                 else
                 {
-                    echo "<a class='btn-book2 btn-book' href='#registro' role='button'>Sube Tus videos aqui</a>";
+                    echo "<a class='getst' href='#registro' role='button'>Sube Tus videos aqui</a>";
                 }
               ?>
 
@@ -134,11 +128,7 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
         </div>
       </div>-->
     </div>
-    <!-- Indicators
-    <ol class="carousel-indicators">
-      <li data-target="#homeSlider" data-slide-to="0" class="active"></li>
-      <li data-target="#homeSlider" data-slide-to="1"></li>-->
-    </ol>
+    
   </div>
 </div>
 <!-- /carousel Close -->
@@ -200,7 +190,6 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
                                   Asegúrate de que funciona correctamente.
           	                </li>
                           <ol>
-
         </div>
       </div>
     </div>
@@ -314,21 +303,21 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
 <div class="clearfix"></div>
 <!-- video_uno
     ================================================== -->
-    <div class="video_uno">
-    <div id="videoDiv">
-    <div id="videoBlock">
-    <video preload="preload" id="video" controls>
-    <source src="images/Recursos/comohacer.mp4" type="video/mp4"></source>
-    </video>
-    <div id="videoMessage">
-    <h1>Alberto Chimal y Raquel Castro les dan consejos para hacer una buena video reseña</h1>
-    <p class="videoClick" >
-    <a href="#registro">Registrate</a>
-    </p>
+    <div class="comop" id="comop2">
+  <div class="container">
+    <div class="row" style="height: 120%;">
+      
+      <div class="col-md-12">
+        <div class="txt-como">
+            <center><h3>Alberto Chimal y Raquel Castro les dan consejos para hacer una buena video reseña</h3><br /></center>
+            <center><a href="#registro">Registrate</a></center><br /><br />
+            <center><iframe style="width: 80%;" src="http://www.youtube.com/embed/R1_q_aAr8Fg" height="615" allowfullscreen="" frameborder="0">
+            </iframe></center>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
+  </div>
+</div>
 <!-- / video_uno  Close -->
 <div class="clearfix"></div>
 <!-- Our Team Section
@@ -654,7 +643,6 @@ if(isset($_POST["pais"]) && isset($_POST["ciudad"]))
 <?php
     if(!$_SESSION['entorno']['usuario_email'])
     {
-
                               ?>
 <div class="registro" id="registro">
   <div class="container">
@@ -832,7 +820,6 @@ $(document).on("ready",function(){
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
         var ecode = getParameterByName('ec');
-
         if(ecode)
         {
             $("html,body").animate({ scrollTop : $("#registro").offset().top  }, 1500 );
@@ -904,7 +891,6 @@ $(document).on("ready",function(){
                 });
             }
         }
-
 });
 </script>
 <script type="text/javascript" src="js/selects.js"></script>
